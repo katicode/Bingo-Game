@@ -1,0 +1,11 @@
+C:\Git\Bingo-Game\BingoApp\BingoApp\bin\Debug\netcoreapp2.1\BingoApp.deps.json
+C:\Git\Bingo-Game\BingoApp\BingoApp\bin\Debug\netcoreapp2.1\BingoApp.runtimeconfig.json
+C:\Git\Bingo-Game\BingoApp\BingoApp\bin\Debug\netcoreapp2.1\BingoApp.runtimeconfig.dev.json
+C:\Git\Bingo-Game\BingoApp\BingoApp\bin\Debug\netcoreapp2.1\BingoApp.dll
+C:\Git\Bingo-Game\BingoApp\BingoApp\bin\Debug\netcoreapp2.1\BingoApp.pdb
+C:\Git\Bingo-Game\BingoApp\BingoApp\obj\Debug\netcoreapp2.1\BingoApp.csprojAssemblyReference.cache
+C:\Git\Bingo-Game\BingoApp\BingoApp\obj\Debug\netcoreapp2.1\BingoApp.csproj.CoreCompileInputs.cache
+C:\Git\Bingo-Game\BingoApp\BingoApp\obj\Debug\netcoreapp2.1\BingoApp.AssemblyInfoInputs.cache
+C:\Git\Bingo-Game\BingoApp\BingoApp\obj\Debug\netcoreapp2.1\BingoApp.AssemblyInfo.cs
+C:\Git\Bingo-Game\BingoApp\BingoApp\obj\Debug\netcoreapp2.1\BingoApp.dll
+C:\Git\Bingo-Game\BingoApp\BingoApp\obj\Debug\netcoreapp2.1\BingoApp.pdb
