@@ -92,10 +92,63 @@ namespace BingoApp
                 Console.WriteLine(); // rivinvaihto, jotta useammat laput eivät mene peräkkäin
             }
 
-            Console.WriteLine("Aloitetaan Bingo!");
+            Console.WriteLine("Aloitetaan Bingo! Enterillä pääsee aina eteenpäin.");
+            Console.WriteLine("Numeroita arvotaan niin kauan, kunnes käyttäjä kirjoittaa stop");
+            bool pelataan = true;
+            while (pelataan == true)
+            {
+                int arvottunumero = ArvoNumero(1, 75);
+                string kirjain = MikaKirjain(arvottunumero);
 
+                Console.WriteLine("Numero on: " + kirjain + " " + arvottunumero);
+                string syote = Console.ReadLine();
+                if (syote == "stop")
+                {
+                    pelataan = false;
+                }
+                else
+                {
+                    continue;
+                }
+            }
 
+            Console.WriteLine("Peli loppui.");
             Console.ReadLine();
+        }
+
+        private static string MikaKirjain(int numero)
+        {
+            string kirjain;
+            if (numero >= 1 && numero <= 15)
+            {
+                kirjain = "B";
+                return kirjain;
+            }
+            if (numero >= 16 && numero <= 30)
+            {
+                kirjain = "I";
+                return kirjain;
+            }
+            if (numero >= 31 && numero <= 45)
+            {
+                kirjain = "N";
+                return kirjain;
+            }
+            if (numero >= 46 && numero <= 60)
+            {
+                kirjain = "G";
+                return kirjain;
+            }
+            if (numero >= 61 && numero <= 75)
+            {
+                kirjain = "O";
+                return kirjain;
+            }
+            else
+            {
+                kirjain = "ei löytynyt";
+                return kirjain;
+            }
         }
 
         /* Aliohjelma kupongin numeroiden arvontaan, 75 numeron bingo
@@ -115,7 +168,7 @@ namespace BingoApp
         /* Tämä aliohjelma generoi 5 yksilöllistä numeroa tietyltä väliltä (lähetetty muuttujat min ja max)
          * Kun numerot on luotu, ne lisätään apulista-muuttujaan joka palautetaan pääohjelmalle (Main)
          */
-        public static List<int> SarakkeenNumeroidenLuonti(int min, int max)
+        private static List<int> SarakkeenNumeroidenLuonti(int min, int max)
         {
             //luodaan apulista mahdollisten tuplanumeroiden tarkistamista varten
             var apulista = new List<int>();
