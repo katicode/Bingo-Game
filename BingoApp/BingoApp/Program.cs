@@ -94,28 +94,53 @@ namespace BingoApp
 
             Console.WriteLine("Aloitetaan Bingo! Enterillä pääsee aina eteenpäin.");
             Console.WriteLine("Numeroita arvotaan niin kauan, kunnes käyttäjä kirjoittaa stop");
+            
+            //apulista, johon voittonumerot tallennetaan
+            var voittonumerot = new List<int>();
+
             bool pelataan = true;
             while (pelataan == true)
             {
                 int arvottunumero = ArvoNumero(1, 75);
-                string kirjain = MikaKirjain(arvottunumero);
 
-                Console.WriteLine("Numero on: " + kirjain + " " + arvottunumero);
-                string syote = Console.ReadLine();
-                if (syote == "stop")
+                // etsitään onko juuri arvottu numero jo listalla
+                bool tulos = voittonumerot.Exists(x => x == arvottunumero);
+                // Console.WriteLine(tulos);
+                // jos numero ei ole listalla niin lisätään se listalle ja kerrotaan käyttäjälle
+                if (tulos == false)
                 {
-                    pelataan = false;
+                    voittonumerot.Add(arvottunumero);
+                    string kirjain = MikaKirjain(arvottunumero);
+
+                    Console.WriteLine("Numero on: " + kirjain + " " + arvottunumero);
+                    string syote = Console.ReadLine();
+                    if (syote == "stop")
+                    {
+                        pelataan = false;
+                    }
+                    else
+                    {
+                        continue;
+                    }
                 }
+                //jos numero on jo listalla niin jatketaan takaisin numeron arpomiseen (riville 104)
                 else
                 {
+                    // voittonumerot.Add(arvottunumero);
                     continue;
                 }
+
             }
+            /*foreach (int a in voittonumerot)
+            {
+                Console.WriteLine(a);
+            }*/
 
             Console.WriteLine("Peli loppui.");
             Console.ReadLine();
         }
 
+        // Aliohjelma tarkistaa missä sarakkeessa numero on ja palauttaa jonkin viidestä kirjaimesta B I N G O
         private static string MikaKirjain(int numero)
         {
             string kirjain;
