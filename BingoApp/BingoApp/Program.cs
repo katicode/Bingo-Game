@@ -7,90 +7,105 @@ namespace BingoApp
     {
         static void Main(string[] args)
         {
-            // Kysytään käyttäjältä montako kuponkia tehdään eli monta pelaajaa on
-            Console.WriteLine("Monta kuponkia tehdään? ");
-            int kuponkienLkm = Int32.Parse(Console.ReadLine());
-
-            Console.WriteLine("Tulostetaan " + kuponkienLkm + " kuponkia.");
-
-            for (int i = 0; i < kuponkienLkm; i++)
+            do
             {
-                // Bingolapun luominen
-                int[,] bingolappu;
-                bingolappu = new int[5, 5];
-
-                for (int n = 0; n < 5; n++)// rivien lukumäärä = 5
+                try
                 {
-                    // arvotaan numerot sarake kerrallaan (p = rivi, n = sarake)
+                    // Kysytään käyttäjältä montako kuponkia tehdään eli monta pelaajaa on
+                    Console.WriteLine("Monta kuponkia tehdään? ");
+                    int kuponkienLkm = Int32.Parse(Console.ReadLine());
 
-                    if (n == 0) // nollasarakkeen eli ensimmäisen = B-sarakkeen käsittely
+                    Console.WriteLine("Tulostetaan " + kuponkienLkm + " kuponkia.");
+
+
+                    for (int i = 0; i < kuponkienLkm; i++)
                     {
-                        List <int> apulista = SarakkeenNumeroidenLuonti(1, 15);
-                        
-                        for (int p = 0; p < 5; p++)
-                        {
-                            // kun 5 numeroa arvottu, lisätään ne bingolapulle
-                            bingolappu[p, n] = apulista[p];
-                        }
-                    }
-                    if (n == 1)
-                    {
-                        List<int> apulista = SarakkeenNumeroidenLuonti(16, 30);
+                        // Bingolapun luominen
+                        int[,] bingolappu;
+                        bingolappu = new int[5, 5];
 
-                        for (int p = 0; p < 5; p++)
+                        for (int n = 0; n < 5; n++)// rivien lukumäärä = 5
                         {
-                            // kun 5 numeroa arvottu, lisätään ne bingolapulle
-                            bingolappu[p, n] = apulista[p];
+                            // arvotaan numerot sarake kerrallaan (p = rivi, n = sarake)
+
+                            if (n == 0) // nollasarakkeen eli ensimmäisen = B-sarakkeen käsittely
+                            {
+                                List<int> apulista = SarakkeenNumeroidenLuonti(1, 15);
+
+                                for (int p = 0; p < 5; p++)
+                                {
+                                    // kun 5 numeroa arvottu, lisätään ne bingolapulle
+                                    bingolappu[p, n] = apulista[p];
+                                }
+                            }
+                            if (n == 1)
+                            {
+                                List<int> apulista = SarakkeenNumeroidenLuonti(16, 30);
+
+                                for (int p = 0; p < 5; p++)
+                                {
+                                    // kun 5 numeroa arvottu, lisätään ne bingolapulle
+                                    bingolappu[p, n] = apulista[p];
+                                }
+
+                            }
+                            if (n == 2)
+                            {
+                                List<int> apulista = SarakkeenNumeroidenLuonti(31, 45);
+
+                                for (int p = 0; p < 5; p++)
+                                {
+                                    // kun 5 numeroa arvottu, lisätään ne bingolapulle
+                                    bingolappu[p, n] = apulista[p];
+                                }
+                            }
+                            if (n == 3)
+                            {
+                                List<int> apulista = SarakkeenNumeroidenLuonti(46, 60);
+
+                                for (int p = 0; p < 5; p++)
+                                {
+                                    // kun 5 numeroa arvottu, lisätään ne bingolapulle
+                                    bingolappu[p, n] = apulista[p];
+                                }
+                            }
+                            if (n == 4)
+                            {
+                                List<int> apulista = SarakkeenNumeroidenLuonti(61, 75);
+
+                                for (int p = 0; p < 5; p++)
+                                {
+                                    // kun 5 numeroa arvottu, lisätään ne bingolapulle
+                                    bingolappu[p, n] = apulista[p];
+                                }
+                            }
+
                         }
 
-                    }
-                    if (n == 2)
-                    {
-                        List<int> apulista = SarakkeenNumeroidenLuonti(31, 45);
 
-                        for (int p = 0; p < 5; p++)
+                        Console.WriteLine("B I N G O");
+                        // Bingolapun tulostaminen taulukkoon
+                        for (int t = 0; t < 5; t++)// rivien lukumäärä = 5
                         {
-                            // kun 5 numeroa arvottu, lisätään ne bingolapulle
-                            bingolappu[p, n] = apulista[p];
-                        }
-                    }
-                    if (n == 3)
-                    {
-                        List<int> apulista = SarakkeenNumeroidenLuonti(46, 60);
+                            for (int j = 0; j < 5; j++)//rivillä olevien sarakkeiden lukumäärä = 5
+                            {
+                                Console.Write(bingolappu[t, j] + " "); //Tulostetaan taulukon solun arvot peräkkäin samalle riville + välilyönti
+                            }
+                            Console.WriteLine();//Rivien tulostuksen jälkeen tulostetaan rivinvaihto, jotta seuraava rivi tulostuisi seuraavalle riville
 
-                        for (int p = 0; p < 5; p++)
-                        {
-                            // kun 5 numeroa arvottu, lisätään ne bingolapulle
-                            bingolappu[p, n] = apulista[p];
                         }
+                        Console.WriteLine(); // rivinvaihto, jotta useammat laput eivät mene peräkkäin
                     }
-                    if (n == 4)
-                    {
-                        List<int> apulista = SarakkeenNumeroidenLuonti(61, 75);
 
-                        for (int p = 0; p < 5; p++)
-                        {
-                            // kun 5 numeroa arvottu, lisätään ne bingolapulle
-                            bingolappu[p, n] = apulista[p];
-                        }
-                    }
+                    //poistutaan luupista kun lappu/laput on tulostettu
+                    break;
 
                 }
-
-
-                Console.WriteLine("B I N G O");
-                // Bingolapun tulostaminen taulukkoon
-                for (int t = 0; t < 5 ; t++)// rivien lukumäärä = 5
+                catch (Exception e)
                 {
-                    for (int j = 0; j < 5; j++)//rivillä olevien sarakkeiden lukumäärä = 5
-                    {
-                        Console.Write(bingolappu[t, j] + " "); //Tulostetaan taulukon solun arvot peräkkäin samalle riville + välilyönti
-                    }
-                    Console.WriteLine();//Rivien tulostuksen jälkeen tulostetaan rivinvaihto, jotta seuraava rivi tulostuisi seuraavalle riville
-
+                    Console.WriteLine("Kirjoita määrä numeroina.");
                 }
-                Console.WriteLine(); // rivinvaihto, jotta useammat laput eivät mene peräkkäin
-            }
+            } while (true);
 
             Console.WriteLine("Aloitetaan Bingo! Enterillä pääsee aina eteenpäin.");
             Console.WriteLine("Numeroita arvotaan niin kauan, kunnes käyttäjä kirjoittaa stop");
